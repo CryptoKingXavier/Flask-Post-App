@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h1 style="margin-top: 0.5rem; text-align: center">New Blog Post Entry</h1>
+    <hr>
+    <form action="/posts" method="POST">
+     <label for="title">Title:</label>    
+     <input class="form-control" type="text" placeholder="Post Title" aria-label="Post Title" name='title' id="title" required>
+     <br>
+     <label for="author">Author:</label>
+     <input class="form-control" type="text" placeholder="Post Author" aria-label="Post Author" name='author' id="author" required>
+     <br>
+     <label for="content">Content:</label>
+     <textarea class="form-control" name='content' id="content" placeholder="Post" aria-label="Post" rows="3" required></textarea>
+     <br>
+     <input type="submit" value="Upload Post" class="btn btn-primary">
+   </form>
+    <hr>
+{% endblock %}

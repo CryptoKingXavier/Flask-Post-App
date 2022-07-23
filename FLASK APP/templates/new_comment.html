@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h1 style="margin-top: 0.5rem; text-align: center">New Comment Entry</h1>
+    <hr>
+    <form action="/comments" method="POST">
+     <label for="title">Title:</label>    
+     <input class="form-control" type="text" placeholder="Comment Title" aria-label="Comment Title" name='comment_title' id="title" required>
+     <br>
+     <label for="author">Author:</label>
+     <input class="form-control" type="text" placeholder="Comment Author" aria-label="Comment Author" name='comment_author' id="author" required>
+     <br>
+     <label for="id">Post Number:</label>
+     <input class="form-control" type="text" placeholder="Post Id" aria-label="Post Id" name='comment_track' id="id" required>
+     <br>
+     <label for="content">Comment:</label>
+     <textarea class="form-control" name='comment_content' id="content" placeholder="Comment" aria-label="Comment" rows="3" required></textarea>
+     <br>
+     <input type="submit" value="Upload Comment" class="btn btn-primary">
+   </form>
+    <hr>
+{% endblock %}

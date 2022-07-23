@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+<br>
+<div>
+    <h3 style="font-weight: bolder; text-align: center; font-family: Optima">COMMENTS ROOM</h3>
+    <marquee scrollamount="1" direction="up" style="text-align: center" scrolldelay="100">
+            <a class="btn btn-danger" href="/posts">Back To Posts &raquo;</a>
+            <a style="display: block; width: 14%; margin-left: auto; margin-right: auto;" class="btn btn-success float-right" href="/comments/new_comment">New Comment &raquo;</a>
+    </marquee>
+    <marquee scrollamount="1" direction="down" scrolldelay="300">
+        {% if count == 1 %}
+            <h6 style="text-align: right; margin-top: 0.5rem; color: crimson; font-size: 10.5px">{{ count }} Comment Created!</h6>
+        {% elif count > 1 %}
+            <h6 style="text-align: right; margin-top: 0.5rem; color: crimson; font-size: 10.5px">{{ count }} Comments Created!</h6>
+        {% endif %}
+    </marquee>
+</div>
+  <hr>
+      {% for comment in comments %}
+          {% if comment.comment_title == '' %}
+          {% else %}
+              {% for comment in comments %}
+                  <h3 style="text-transform: uppercase; font-family: Didot, serif; font-weight: bold; font-size: 25px">{{ comment.comment_title }}</h3>
+                  <small>Written by: {{ comment.comment_author }} on {{ comment.comment_date_posted }}</small>
+                  <br>
+                  <small style="font-size: 12px; color: lightgray">RE: POST {{ comment.comment_track }}</small>
+                  <br>
+                  <br>
+                  <p style="white-space:pre-wrap; font-size: 18px; font-family: Georgia, serif">{{ comment.comment_content }}</p>
+                  <a class="btn btn-danger" href="/comments/delete/{{ comment.id }}">Delete</a>
+                  <a class="btn btn-primary" href="/comments/edit_comment/{{ comment.id }}">Edit</a>
+                  <br>
+                  <hr>
+               {% endfor %}
+          {% endif %}
+      {% endfor %}
+  
+{% endblock %}

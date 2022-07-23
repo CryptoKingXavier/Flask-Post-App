@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<style>
+    .btn-controls {
+        display: block;
+        width: 15%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<br>
+<div>
+    <h3 style="font-weight: bolder; text-align: center; font-family: Optima">POSTS ROOM</h3>
+    <marquee scrollamount="1" direction="up" style="text-align: center" scrolldelay="100">
+            <a class="btn btn-success btn-controls" href="/posts/new">New Post &raquo;</a>
+            <a class="btn btn-primary btn-controls" href="/comments">Comments &raquo;</a>
+    </marquee>
+    
+    <marquee scrollamount="1" direction="down" scrolldelay="300">
+        {% if count == 1 %}
+            <h6 style="text-align: right; margin-top: 0.5rem; color: crimson; font-size: 10.px">{{ count }} Post Created!</h6>
+        {% elif count > 1 %}
+            <h6 style="text-align: right; margin-top: 0.5rem; color: crimson; font-size: 10.5px">{{ count }} Posts Created!</h6>
+        {% endif %}
+    </marquee>
+</div>
+  <hr>
+  {% for post in posts %}
+    <h3 style="text-transform: uppercase; font-family: Didot, serif; font-weight: bold; font-size: 25px">{{ post.title }}</h3>
+    
+    {% if post.author %}
+      <small style="font-size: 12px; color: lightgrey; font-weight: bold; font-style: italic">Written by: {{ post.author }} on {{ post.date_posted }} </small>
+    {% else %}
+      <small>Written by: Unknown on {{ post.date_posted }} </small>
+    {% endif %}
+    <br>
+    <br>
+    <p style="white-space:pre-wrap; font-size: 18px; font-family: Optima, serif">{{ post.content }}</p>
+    <a class="btn btn-danger" href="/posts/delete/{{ post.id }}">Delete</a>
+    <a class="btn btn-primary" href="/posts/edit/{{ post.id }}">Edit</a>
+    <br>
+    <hr>
+  {% endfor %}
+  
+{% endblock %}

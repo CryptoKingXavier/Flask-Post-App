@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+
+ <h1>Edit Comment Entry</h1>
+ 
+  <hr>
+   <h2>Edit: </h2>
+   <form action="/posts/edit/{{ comment_post.id }}" method="POST">
+     <label for="title">Comment Title:</label>    
+     <input class="form-control" type="text" aria-label="Enter Title" name='title' id="title" value="{{ comment_post.comment_title }}">
+     <br>
+     <label for="author">Comment Author:</label>
+     <input class="form-control" type="text" aria-label="Enter Author" name='author' id="author" value="{{ comment_post.comment_author }}">
+     <br>
+     <label for="id">Post Number:</label>
+     <input class="form-control" type="text" placeholder="Post Id" aria-label="Post Id" name='comment_track' id="id" required>
+     <br>
+     <label for="content">Post:</label>
+     <textarea class="form-control" name='content' id="content" aria-label="Enter Content" rows="3">{{ comment_post.comment_content }}</textarea>
+     <br>
+     <input type="submit" value="Comment">
+   </form>
+  <hr> 
+  
+{% endblock %}

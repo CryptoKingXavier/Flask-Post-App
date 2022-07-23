@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<style>
+    h1 {
+        text-align: center;
+    }
+</style>
+<script>
+    console.log("DataBase Created, Initialised & Served-Up");
+</script>
+{% endblock %}
+
+{% block body %}
+<br><br>
+<main role="main">
+    <div class="jumbotron">
+        <div class="col-sm-8 mx-auto" style="text-align: center">
+            <h1>WELCOME</h1>
+            <hr>
+            <p>Welcome to the CS CODING BLOG! Here we'll be talking about everything computer science. Basics, frameworks, machine learning, other data science stuff, any new tech or findings, and pretty much anything computer science related plus crypto related stuffs as well.</p>
+            <p>For Programming Interested Buddies, Go Visit... <a href="https://www.cleverprogrammer.com" target="_blank">cleverprogrammer.com</a> to check out more cool stuff beyond just blogs.</p>
+            <hr>
+<!--
+            <p>
+                <a class="btn btn-primary" href="/posts" role="button" >Go To Posts &raquo;</a>
+            </p>
+-->
+        </div>
+    </div>
+</main>
+{% endblock %}
